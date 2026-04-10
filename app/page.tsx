@@ -185,23 +185,23 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Contactez-nous</h2>
           <p className="text-gray-500 mb-8">Une question, une suggestion, un partenariat ? Écrivez-nous.</p>
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-left">
+          <form action="https://formspree.io/f/xbdpvpld" method="POST" className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-left">
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Nom complet</label>
-                <input type="text" placeholder="Votre nom" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <input type="text" name="name" name="nom" placeholder="Votre nom" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
-                <input type="email" placeholder="votre@email.com" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <input type="email" name="email" name="email" placeholder="votre@email.com" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Message</label>
-                <textarea placeholder="Votre message..." rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <textarea name="message" placeholder="Votre message..." rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
               <button className="w-full bg-green-700 text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">Envoyer</button>
             </div>
-          </div>
+          </form>
         </div>
       </section>
 
