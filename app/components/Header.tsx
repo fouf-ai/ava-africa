@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/digital", fr: "Numérique", en: "Digital" },
   { href: "/youth", fr: "Jeunesse", en: "Youth" },
   { href: "/team", fr: "Équipe", en: "Team" },
+  { href: "/news", fr: "Actualités", en: "News" },
 ];
 
 export default function Header({ current }: { current?: string }) {
