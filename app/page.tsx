@@ -4,28 +4,15 @@ import Link from "next/link";
 import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-const pillars = [
-  { icon: "🚨", title: "Urgences Sociales", desc: "Réponse rapide aux crises humanitaires, sanitaires et environnementales à travers le continent.", link: "/emergencies" },
-  { icon: "🛡️", title: "Souveraineté Numérique & IA", desc: "Formation en cybersécurité, IA appliquée et protection des infrastructures numériques africaines.", link: "/digital" },
-  { icon: "🎓", title: "Éducation & Opportunités", desc: "Accès aux bourses internationales, MOOC, certifications et partenariats universitaires.", link: "/scholarships" },
-  { icon: "🚀", title: "Innovation Jeunesse", desc: "Incubation de startups, hackathons et accompagnement des jeunes entrepreneurs africains.", link: "/youth" },
-];
-
-const stats = [
-  { value: "54", label: "Pays ciblés" },
-  { value: "5", label: "Bureaux régionaux" },
-  { value: "4", label: "Piliers stratégiques" },
-  { value: "∞", label: "Ambition" },
-];
+import { useLanguage } from "./components/LanguageContext";
 
 const aiTools = [
-  { icon: "🌐", title: "Build a Business Website", desc: "Describe your business and let AI generate a complete website structure, content and design for you.", prompt: "Help me build a website for my business. I will describe what I do and you create the structure." },
-  { icon: "📄", title: "Write a Business Plan", desc: "Get AI to draft a professional business plan tailored to the African market and investors.", prompt: "Help me write a business plan for my startup in Africa. Ask me about my business idea." },
-  { icon: "🛡️", title: "Cybersecurity Audit Check", desc: "Answer questions about your digital setup and get AI-powered security recommendations.", prompt: "I want a basic cybersecurity check for my business. Ask me questions about my digital infrastructure." },
-  { icon: "🎓", title: "Find Scholarships", desc: "Tell AI your profile and get personalized scholarship recommendations from around the world.", prompt: "Help me find scholarships. I will share my profile and you recommend the best opportunities." },
-  { icon: "📊", title: "Analyze My Data", desc: "Describe your data and get AI insights, visualizations ideas, and actionable recommendations.", prompt: "Help me analyze my data and give me insights. I will describe what data I have." },
-  { icon: "💡", title: "Startup Idea Validator", desc: "Share your startup idea and get AI feedback on viability, market fit, and next steps for Africa.", prompt: "I have a startup idea I want to validate. Let me describe it and give me honest feedback." },
+  { icon: "🌐", title: "Build a Business Website", desc: "Describe your business and let AI generate a complete website structure and content.", prompt: "Help me build a website for my business." },
+  { icon: "📄", title: "Write a Business Plan", desc: "Get AI to draft a professional business plan tailored to the African market.", prompt: "Help me write a business plan for my startup in Africa." },
+  { icon: "🛡️", title: "Cybersecurity Audit Check", desc: "Get AI-powered security recommendations for your digital setup.", prompt: "I want a basic cybersecurity check for my business." },
+  { icon: "🎓", title: "Find Scholarships", desc: "Get personalized scholarship recommendations from around the world.", prompt: "Help me find scholarships based on my profile." },
+  { icon: "📊", title: "Analyze My Data", desc: "Get AI insights and actionable recommendations from your data.", prompt: "Help me analyze my data and give me insights." },
+  { icon: "💡", title: "Startup Idea Validator", desc: "Get AI feedback on viability, market fit, and next steps for Africa.", prompt: "I have a startup idea I want to validate." },
 ];
 
 function AIChatWrapper({ tool, onClose }: { tool: (typeof aiTools)[0]; onClose: () => void }) {
@@ -56,7 +43,7 @@ function AIChatWrapper({ tool, onClose }: { tool: (typeof aiTools)[0]; onClose: 
       const aiText = data.content?.map((item: { type: string; text?: string }) => (item.type === "text" ? item.text : "")).filter(Boolean).join("\n") || "I couldn't process that request.";
       setMessages((prev) => [...prev, { role: "assistant", text: aiText }]);
     } catch {
-      setMessages((prev) => [...prev, { role: "assistant", text: "⚠️ AI service is not connected yet. To activate this feature, the AVA team needs to configure the API key. Contact us at contact@ava-africa.org!\n\nIn the meantime, explore our programs at /youth or our training at /digital." }]);
+      setMessages((prev) => [...prev, { role: "assistant", text: "⚠️ AI service is not connected yet. Contact us at contact@ava-africa.org to learn more!" }]);
     }
     setLoading(false);
   };
@@ -65,10 +52,7 @@ function AIChatWrapper({ tool, onClose }: { tool: (typeof aiTools)[0]; onClose: 
     <div className="mt-10 max-w-3xl mx-auto">
       <div className="rounded-2xl overflow-hidden border border-gray-700">
         <div className="bg-green-800 px-6 py-4 flex items-center justify-between">
-          <div>
-            <h3 className="font-bold text-white">🤖 AVA AI Assistant</h3>
-            <p className="text-sm text-green-200">{tool.title}</p>
-          </div>
+          <div><h3 className="font-bold text-white">🤖 AVA AI Assistant</h3><p className="text-sm text-green-200">{tool.title}</p></div>
           <button onClick={onClose} className="text-sm bg-white/20 text-white px-3 py-1 rounded-lg hover:bg-white/30 transition">✕ Close</button>
         </div>
         <div className="h-80 overflow-y-auto p-6 space-y-4 bg-gray-800">
@@ -91,33 +75,30 @@ function AIChatWrapper({ tool, onClose }: { tool: (typeof aiTools)[0]; onClose: 
 export default function Home() {
   const [showChat, setShowChat] = useState(false);
   const [chatTool, setChatTool] = useState<(typeof aiTools)[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <Header current="/" />
 
-      {/* Hero */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-green-800 via-green-700 to-yellow-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            African Visionaries<br /><span className="text-yellow-300">Alliance</span>
-          </h1>
-          <p className="text-xl md:text-2xl font-light mb-4 text-green-100">Alliance des Visionnaires Africains pour la Résilience Numérique et les Urgences Sociales</p>
-          <p className="text-lg mb-10 text-green-200 max-w-2xl mx-auto">Voir plus loin. Agir plus vite. Bâtir l&apos;Afrique.</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">African Visionaries<br /><span className="text-yellow-300">Alliance</span></h1>
+          <p className="text-xl md:text-2xl font-light mb-4 text-green-100">{t("Alliance des Visionnaires Africains pour la Résilience Numérique et les Urgences Sociales", "African Visionaries Alliance for Digital Resilience and Social Emergencies")}</p>
+          <p className="text-lg mb-10 text-green-200 max-w-2xl mx-auto">{t("Voir plus loin. Agir plus vite. Bâtir l'Afrique.", "See further. Act faster. Build Africa.")}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/youth" className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition">Rejoindre l&apos;AVA</Link>
-            <Link href="#ai-tools" className="border-2 border-white/40 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition">🤖 Try our AI Tools</Link>
+            <Link href="/youth" className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition">{t("Rejoindre l'AVA", "Join AVA")}</Link>
+            <Link href="#ai-tools" className="border-2 border-white/40 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition">🤖 {t("Nos outils IA", "Our AI Tools")}</Link>
           </div>
         </div>
       </section>
 
-      {/* AI Tools */}
       <section id="ai-tools" className="py-20 px-6 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-sm font-bold text-yellow-400 tracking-widest uppercase">Powered by AI</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">AI Tools for African Entrepreneurs</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">Free AI-powered tools to help you build, grow and protect your business. Select a tool to get started.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">{t("Outils IA pour Entrepreneurs Africains", "AI Tools for African Entrepreneurs")}</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">{t("Outils IA gratuits pour construire, développer et protéger votre activité.", "Free AI-powered tools to help you build, grow and protect your business.")}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {aiTools.map((tool) => (
@@ -125,7 +106,7 @@ export default function Home() {
                 <div className="text-3xl mb-3">{tool.icon}</div>
                 <h3 className="text-lg font-bold mb-2 group-hover:text-yellow-400 transition">{tool.title}</h3>
                 <p className="text-sm text-gray-400">{tool.desc}</p>
-                <div className="mt-4 text-xs font-semibold text-yellow-500 opacity-0 group-hover:opacity-100 transition">Click to start →</div>
+                <div className="mt-4 text-xs font-semibold text-yellow-500 opacity-0 group-hover:opacity-100 transition">{t("Cliquer pour commencer →", "Click to start →")}</div>
               </button>
             ))}
           </div>
@@ -133,73 +114,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
       <section id="about" className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Qui sommes-nous ?</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">L&apos;African Visionaries Alliance (AVA) est une organisation panafricaine portée par la jeunesse, née de la fusion de l&apos;Académie Centrafricaine du Numérique et de la Cybersécurité (ACNC) et d&apos;AVURESA. Nous croyons que la résilience de l&apos;Afrique passe par sa jeunesse, sa souveraineté numérique et sa capacité à répondre aux urgences sociales.</p>
-          <Link href="/about" className="text-green-700 font-semibold hover:text-green-800">En savoir plus →</Link>
+          <h2 className="text-3xl font-bold mb-6">{t("Qui sommes-nous ?", "Who are we?")}</h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-6">{t("L'African Visionaries Alliance (AVA) est une organisation panafricaine portée par la jeunesse, fondée par des jeunes visionnaires africains. Nous croyons que la résilience de l'Afrique passe par sa jeunesse, sa souveraineté numérique et sa capacité à répondre aux urgences sociales.", "The African Visionaries Alliance (AVA) is a pan-African youth-led organization founded by young African visionaries. We believe that Africa's resilience depends on its youth, its digital sovereignty, and its ability to respond to social emergencies.")}</p>
+          <Link href="/about" className="text-green-700 font-semibold hover:text-green-800">{t("En savoir plus →", "Learn more →")}</Link>
         </div>
       </section>
 
-      {/* 4 Piliers */}
       <section id="pillars" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Nos 4 Piliers</h2>
-          <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">Une approche intégrée pour une Afrique résiliente, numérique et souveraine.</p>
+          <h2 className="text-3xl font-bold text-center mb-4">{t("Nos 4 Piliers", "Our 4 Pillars")}</h2>
+          <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">{t("Une approche intégrée pour une Afrique résiliente, numérique et souveraine.", "An integrated approach for a resilient, digital and sovereign Africa.")}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {pillars.map((p) => (
-              <Link href={p.link} key={p.title} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition block">
+            {[
+              { icon: "🚨", fr: "Urgences Sociales", en: "Social Emergencies", descFr: "Réponse rapide aux crises humanitaires, sanitaires et environnementales.", descEn: "Rapid response to humanitarian, health and environmental crises.", link: "/emergencies" },
+              { icon: "🛡️", fr: "Souveraineté Numérique & IA", en: "Digital Sovereignty & AI", descFr: "Formation en cybersécurité, IA appliquée et protection des infrastructures.", descEn: "Cybersecurity training, applied AI and infrastructure protection.", link: "/digital" },
+              { icon: "🎓", fr: "Éducation & Opportunités", en: "Education & Opportunities", descFr: "Accès aux bourses internationales, MOOC et certifications.", descEn: "Access to international scholarships, MOOCs and certifications.", link: "/scholarships" },
+              { icon: "🚀", fr: "Innovation Jeunesse", en: "Youth Innovation", descFr: "Incubation de startups, hackathons et accompagnement des jeunes entrepreneurs.", descEn: "Startup incubation, hackathons and support for young entrepreneurs.", link: "/youth" },
+            ].map((p) => (
+              <Link href={p.link} key={p.fr} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition block">
                 <div className="text-4xl mb-4">{p.icon}</div>
-                <h3 className="text-lg font-bold mb-2 text-green-800">{p.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg font-bold mb-2 text-green-800">{t(p.fr, p.en)}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{t(p.descFr, p.descEn)}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats */}
       <section className="py-16 px-6 bg-green-800 text-white">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="text-4xl md:text-5xl font-bold text-yellow-400">{s.value}</div>
-              <div className="text-sm mt-2 text-green-200">{s.label}</div>
-            </div>
+          {[
+            { value: "54", fr: "Pays ciblés", en: "Target countries" },
+            { value: "5", fr: "Bureaux régionaux", en: "Regional offices" },
+            { value: "4", fr: "Piliers stratégiques", en: "Strategic pillars" },
+            { value: "∞", fr: "Ambition", en: "Ambition" },
+          ].map((s) => (
+            <div key={s.fr}><div className="text-4xl md:text-5xl font-bold text-yellow-400">{s.value}</div><div className="text-sm mt-2 text-green-200">{t(s.fr, s.en)}</div></div>
           ))}
         </div>
       </section>
 
-      {/* Partners */}
       <section id="partners" className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Devenez partenaire</h2>
-          <p className="text-gray-500 mb-8">Gouvernements, bailleurs, entreprises, universités — ensemble, bâtissons la résilience africaine.</p>
-          <Link href="/youth" className="inline-block bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition">Nous soutenir</Link>
+          <h2 className="text-3xl font-bold mb-4">{t("Devenez partenaire", "Become a partner")}</h2>
+          <p className="text-gray-500 mb-8">{t("Gouvernements, bailleurs, entreprises, universités — ensemble, bâtissons la résilience africaine.", "Governments, donors, businesses, universities — together, let's build African resilience.")}</p>
+          <Link href="/youth" className="inline-block bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition">{t("Nous soutenir", "Support us")}</Link>
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="py-20 px-6 bg-gray-50">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Contactez-nous</h2>
-          <p className="text-gray-500 mb-8">Une question, une suggestion, un partenariat ? Écrivez-nous.</p>
+          <h2 className="text-3xl font-bold mb-4">{t("Contactez-nous", "Contact us")}</h2>
+          <p className="text-gray-500 mb-8">{t("Une question, une suggestion, un partenariat ? Écrivez-nous.", "A question, suggestion, or partnership? Write to us.")}</p>
           <form action="https://formspree.io/f/xbdpvpld" method="POST" className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-left">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Nom complet</label>
-                <input type="text" name="name" name="nom" placeholder="Votre nom" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <label className="block text-sm font-semibold text-gray-700 mb-1">{t("Nom complet", "Full name")}</label>
+                <input type="text" name="name" placeholder={t("Votre nom", "Your name")} required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
-                <input type="email" name="email" name="email" placeholder="votre@email.com" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <input type="email" name="email" placeholder={t("votre@email.com", "your@email.com")} required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Message</label>
-                <textarea name="message" placeholder="Votre message..." rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <textarea name="message" placeholder={t("Votre message...", "Your message...")} rows={4} required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
-              <button className="w-full bg-green-700 text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">Envoyer</button>
+              <button type="submit" className="w-full bg-green-700 text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">{t("Envoyer", "Send")}</button>
             </div>
           </form>
         </div>

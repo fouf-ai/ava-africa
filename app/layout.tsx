@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./components/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AVA — African Visionaries Alliance",
   description:
-    "Alliance des Visionnaires Africains pour la Résilience Numérique et les Urgences Sociales. Urgences, Cybersécurité, IA, Bourses, Entrepreneuriat Jeunesse.",
+    "Alliance des Visionnaires Africains pour la Résilience Numérique et les Urgences Sociales.",
   keywords:
     "Africa, youth, cybersecurity, AI, emergencies, scholarships, digital sovereignty, innovation",
   openGraph: {
@@ -34,9 +35,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
 
-        {/* WhatsApp Floating Button */}
         <a
           href="https://wa.me/23672545121?text=Bonjour%20AVA%2C%20je%20souhaite%20avoir%20plus%20d%27informations."
           target="_blank"
