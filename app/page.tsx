@@ -29,12 +29,10 @@ function AIChatWrapper({ tool, onClose }: { tool: (typeof aiTools)[0]; onClose: 
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setLoading(true);
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
           messages: [...messages.map((m) => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })), { role: "user", content: userMsg }],
           system: `You are AVA's AI Assistant — African Visionaries Alliance. You help young Africans with: building websites, writing business plans, cybersecurity audits, finding scholarships, data analysis, and startup validation. Be practical, concise, and adapted to the African context. Respond in the same language the user writes in. The current tool is: ${tool.title}.`,
         }),
