@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 
 const leadership = [
-  { name: "Ali Mohamed Ahmed", role: "Président", photo: "🧑‍💼", desc: "Guide la vision stratégique de l'AVA." },
+  { name: "Ali Mohamed Ahmed", role: "Président", photo: "president.jpg", desc: "Guide la vision stratégique de l'AVA." },
   { name: "Christelle Amina Kanani", role: "Vice-Présidente Afrique de l'Ouest", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique de l'Ouest." },
   { name: "Juma Haroon", role: "Vice-Président Afrique Centrale", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique centrale." },
   { name: "Samuel Yao Brafo", role: "Vice-Président Afrique de l'Est", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique de l'Est." },
