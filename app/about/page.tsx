@@ -17,7 +17,7 @@ export default function About() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Notre histoire</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">L&apos;African Visionaries Alliance (AVA) est née de la conviction que la jeunesse africaine détient les clés de la résilience du continent. Fondée par la fusion de l&apos;Académie Centrafricaine du Numérique et de la Cybersécurité (ACNC) et d&apos;AVURESA, l&apos;AVA réunit l&apos;expertise technique en cybersécurité et IA avec la vision panafricaine d&apos;action sociale et humanitaire.</p>
+          <p className="text-gray-600 text-lg leading-relaxed mb-6">L&apos;African Visionaries Alliance (AVA) fondée par des jeunes visionnaires africains déterminés à bâtir la résilience du continent par la technologie et l'action sociale.</p>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">Basée à Bangui, en République Centrafricaine, l&apos;AVA opère à l&apos;échelle continentale à travers cinq bureaux régionaux couvrant l&apos;Afrique du Nord, de l&apos;Ouest, Centrale, de l&apos;Est et Australe.</p>
           <p className="text-gray-600 text-lg leading-relaxed">Nous sommes une organisation non gouvernementale, apolitique et non confessionnelle, régie par l&apos;Ordonnance n° 66/024 du 21 février 1966 relative aux associations en République Centrafricaine. Nos pratiques de gestion sont alignées sur les standards des bailleurs internationaux (USAID, Union Européenne, AFD, Banque Mondiale, BAD).</p>
         </div>
