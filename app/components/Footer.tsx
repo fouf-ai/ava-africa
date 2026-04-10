@@ -10,9 +10,9 @@ export default function Footer() {
     <footer className="bg-gray-900 text-gray-400 py-12 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
         <div>
-          <div className="text-xl font-bold text-white mb-4">
-            <span className="text-green-400">African Visionaries</span>{" "}
-            <span className="text-yellow-400">Alliance</span>
+          <div className="mb-4">
+            <img src="/logo.png" alt="AVA" className="h-10 w-auto mb-2" />
+            <span className="text-xl font-bold"><span className="text-green-400">African Visionaries</span>{" "}<span className="text-yellow-400">Alliance</span></span>
           </div>
           <p className="text-sm">{t("Voir plus loin. Agir plus vite. Bâtir l'Afrique.", "See further. Act faster. Build Africa.")}</p>
         </div>

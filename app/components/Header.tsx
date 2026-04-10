@@ -22,9 +22,9 @@ export default function Header({ current }: { current?: string }) {
   return (
     <header className="fixed top-0 w-full bg-white/90 backdrop-blur border-b border-gray-100 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold">
-          <span className="text-green-700">African Visionaries</span>{" "}
-          <span className="text-yellow-600">Alliance</span>
+        <Link href="/" className="flex items-center gap-3">
+          <img src="/logo.png" alt="AVA" className="h-10 w-auto" />
+          <span className="text-2xl font-bold hidden sm:block"><span className="text-green-700">African Visionaries</span>{" "}<span className="text-yellow-600">Alliance</span></span>
         </Link>
 
         <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
