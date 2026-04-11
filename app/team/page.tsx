@@ -3,30 +3,30 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 
 const leadership = [
-  { name: "Aisha", role: "Présidente", photo: "president.jpg", desc: "Guide la vision stratégique de l'AVA." },
-  { name: "Christelle Amina Kanani", role: "Vice-Présidente Afrique de l'Ouest", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique de l'Ouest." },
-  { name: "Juma Haroon", role: "Vice-Président Afrique Centrale", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique centrale." },
-  { name: "Samuel Yao Brafo", role: "Vice-Président Afrique de l'Est", photo: "🧑‍💼", desc: "Coordonne les activités en Afrique de l'Est." },
-  { name: "Kabuye Marvin", role: "Secrétaire Général", photo: "🧑‍💼", desc: "Gère l'administration et le registre des membres." },
-  { name: "NIBISHAKA Fakiru", role: "Trésorier", photo: "🧑‍💼", desc: "Supervise la gestion financière et la comptabilité." },
+  { name: "Aisha", role: "Présidente", photo: "/team/president.jpg", desc: "Guide la vision stratégique de l'AVA." },
+  { name: "Christelle Amina Kanani", role: "Vice-Présidente Afrique de l'Ouest", photo: "/team/vp-ouest.jpg", desc: "Coordonne les activités en Afrique de l'Ouest." },
+  { name: "Juma Haroon", role: "Vice-Président Afrique Centrale", photo: "/team/vp-centre.jpg", desc: "Coordonne les activités en Afrique centrale." },
+  { name: "Samuel Yao Brafo", role: "Vice-Président Afrique de l'Est", photo: "/team/vp-est.jpg", desc: "Coordonne les activités en Afrique de l'Est." },
+  { name: "Kabuye Marvin", role: "Secrétaire Général", photo: "/team/secretaire.jpg", desc: "Gère l'administration et le registre des membres." },
+  { name: "NIBISHAKA Fakiru", role: "Trésorier", photo: "/team/tresorier.jpg", desc: "Supervise la gestion financière et la comptabilité." },
 ];
 
 const staff = [
-  { name: "Jean-Lucien Fouf-Kagna Grebaye", role: "Directeur Exécutif", dept: "Direction", photo: "👤" },
-  { name: "Yunus Ibrahim", role: "Resp. Réponse aux Urgences", dept: "Urgences", photo: "👤" },
-  { name: "Nada Idris", role: "Resp. Formation & Programmes", dept: "Formation", photo: "👤" },
-  { name: "Soumaila Seyni Harouna", role: "Resp. IA, Cybersécurité & Innovation", dept: "Technologie", photo: "👤" },
-  { name: "Ibrahim Kah", role: "Resp. Bourses & Partenariats Académiques", dept: "Éducation", photo: "👤" },
-  { name: "Adam Ali Ousmane", role: "Resp. Communication & Plaidoyer", dept: "Communication", photo: "👤" },
-  { name: "Andre Theophase Ndayisaba", role: "Resp. Administration & Finances", dept: "Admin & Finance", photo: "👤" },
-  { name: "Gaoussou Binate", role: "Resp. Partenariats & Développement", dept: "Partenariats", photo: "👤" },
-  { name: "À définir", role: "Chargé(e) Suivi-Évaluation", dept: "M&E", photo: "👤" },
-  { name: "À définir", role: "Formateur(trice) Principal(e)", dept: "Formation", photo: "👤" },
-  { name: "À définir", role: "Développeur(se) Web / Plateforme", dept: "Technologie", photo: "👤" },
-  { name: "À définir", role: "Assistant(e) Administratif(ve)", dept: "Support", photo: "👤" },
-  { name: "À définir", role: "Représentant(e) Genre", dept: "Transversal", photo: "👤" },
-  { name: "À définir", role: "Représentant(e) Jeunesse 1", dept: "Jeunesse", photo: "👤" },
-  { name: "À définir", role: "Représentant(e) Jeunesse 2", dept: "Jeunesse", photo: "👤" },
+  { name: "Jean-Lucien Fouf-Kagna Grebaye", role: "Directeur Exécutif", dept: "Direction", photo: "/team/directeur.jpg" },
+  { name: "Yunus Ibrahim", role: "Resp. Réponse aux Urgences", dept: "Urgences", photo: "/team/resp-urgences.jpg" },
+  { name: "Nada Idris", role: "Resp. Formation & Programmes", dept: "Formation", photo: "/team/resp-formation.jpg" },
+  { name: "Soumaila Seyni Harouna", role: "Resp. IA, Cybersécurité & Innovation", dept: "Technologie", photo: "/team/resp-cyber.jpg" },
+  { name: "Ibrahim Kah", role: "Resp. Bourses & Partenariats Académiques", dept: "Éducation", photo: "/team/resp-bourses.jpg" },
+  { name: "Adam Ali Ousmane", role: "Resp. Communication & Plaidoyer", dept: "Communication", photo: "/team/resp-communication.jpg" },
+  { name: "Andre Theophase Ndayisaba", role: "Resp. Administration & Finances", dept: "Admin & Finance", photo: "/team/resp-finances.jpg" },
+  { name: "Gaoussou Binate", role: "Resp. Partenariats & Développement", dept: "Partenariats", photo: "/team/resp-partenariats.jpg" },
+  { name: "À définir", role: "Chargé(e) Suivi-Évaluation", dept: "M&E", photo: "/team/charge-me.jpg" },
+  { name: "À définir", role: "Formateur(trice) Principal(e)", dept: "Formation", photo: "/team/formateur.jpg" },
+  { name: "À définir", role: "Développeur(se) Web / Plateforme", dept: "Technologie", photo: "/team/developpeur.jpg" },
+  { name: "À définir", role: "Assistant(e) Administratif(ve)", dept: "Support", photo: "/team/assistant.jpg" },
+  { name: "À définir", role: "Représentant(e) Genre", dept: "Transversal", photo: "/team/rep-genre.jpg" },
+  { name: "À définir", role: "Représentant(e) Jeunesse 1", dept: "Jeunesse", photo: "/team/rep-jeunesse1.jpg" },
+  { name: "À définir", role: "Représentant(e) Jeunesse 2", dept: "Jeunesse", photo: "/team/rep-jeunesse2.jpg" },
 ];
 
 const representatives = [
@@ -40,6 +40,36 @@ const representatives = [
 const regions = ["Nord", "Ouest", "Centre", "Est", "Sud"];
 const regionColors: Record<string, string> = { Nord: "bg-blue-50 border-blue-200", Ouest: "bg-green-50 border-green-200", Centre: "bg-yellow-50 border-yellow-200", Est: "bg-orange-50 border-orange-200", Sud: "bg-purple-50 border-purple-200" };
 const regionTitles: Record<string, string> = { Nord: "🏛️ Afrique du Nord", Ouest: "🌊 Afrique de l'Ouest", Centre: "🌳 Afrique Centrale", Est: "⛰️ Afrique de l'Est", Sud: "🌄 Afrique Australe" };
+
+function PhotoBig({ photo, name }: { photo: string; name: string }) {
+  if (photo.startsWith("/")) {
+    return (
+      <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-200 bg-gray-100">
+        <img src={photo} alt={name} className="w-full h-full object-cover" />
+      </div>
+    );
+  }
+  return (
+    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center text-5xl border-4 border-green-200">
+      {photo}
+    </div>
+  );
+}
+
+function PhotoSmall({ photo, name }: { photo: string; name: string }) {
+  if (photo.startsWith("/")) {
+    return (
+      <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden bg-gray-100">
+        <img src={photo} alt={name} className="w-full h-full object-cover" />
+      </div>
+    );
+  }
+  return (
+    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-green-100 flex items-center justify-center text-2xl">
+      {photo}
+    </div>
+  );
+}
 
 export default function Team() {
   return (
@@ -60,7 +90,7 @@ export default function Team() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {leadership.map((l) => (
               <div key={l.role} className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center text-5xl border-4 border-green-200">{l.photo}</div>
+                <PhotoBig photo={l.photo} name={l.name} />
                 <h3 className="text-lg font-bold">{l.name}</h3>
                 <p className="text-green-700 font-semibold text-sm mb-2">{l.role}</p>
                 <p className="text-sm text-gray-500">{l.desc}</p>
@@ -77,7 +107,7 @@ export default function Team() {
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {staff.map((s, i) => (
               <div key={i} className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-green-100 flex items-center justify-center text-2xl">{s.photo}</div>
+                <PhotoSmall photo={s.photo} name={s.name} />
                 <h3 className="text-sm font-bold">{s.name}</h3>
                 <p className="text-xs text-green-700 font-medium">{s.role}</p>
                 <p className="text-xs text-gray-400 mt-1">{s.dept}</p>
