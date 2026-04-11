@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "dUCKGXzNZioaMYMFsCYvfkByjKFiJ2vvXEGQXIPJasY",
+  },
   title: "AVA — African Visionaries Alliance",
   description:
     "Alliance des Visionnaires Africains pour la Résilience Numérique et les Urgences Sociales.",
