@@ -3,30 +3,30 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 
 const leadership = [
-  { name: "Aisha", role: "Présidente", photo: "/team/president.jpg", desc: "Guide la vision stratégique de l'AVA." },
-  { name: "Christelle Amina Kanani", role: "Vice-Présidente Afrique de l'Ouest", photo: "/team/vp-ouest.jpg", desc: "Coordonne les activités en Afrique de l'Ouest." },
-  { name: "Juma Haroon", role: "Vice-Président Afrique Centrale", photo: "/team/vp-centre.jpg", desc: "Coordonne les activités en Afrique centrale." },
-  { name: "Samuel Yao Brafo", role: "Vice-Président Afrique de l'Est", photo: "/team/vp-est.jpg", desc: "Coordonne les activités en Afrique de l'Est." },
-  { name: "Kabuye Marvin", role: "Secrétaire Général", photo: "/team/secretaire.jpg", desc: "Gère l'administration et le registre des membres." },
-  { name: "NIBISHAKA Fakiru", role: "Trésorier", photo: "/team/tresorier.jpg", desc: "Supervise la gestion financière et la comptabilité." },
+  { name: "Jean-Lucien Fouf-Kagna Grebaye", role: "Président", photo: "/team/president.jpg", desc: "Guide la vision stratégique de l'AVA." },
+  { name: "Nkhensani", role: "Vice-Présidente Afrique de l'Ouest", photo: "/team/vp-ouest.jpg", desc: "Coordonne les activités en Afrique de l'Ouest." },
+  { name: "Samuel Nana Yaw Bafo", role: "Vice-Président Afrique Centrale", photo: "/team/vp-centre.jpg", desc: "Coordonne les activités en Afrique centrale." },
+  { name: "Ali Mohamed Ahmed", role: "Vice-Président Afrique de l'Est", photo: "/team/vp-est.jpg", desc: "Coordonne les activités en Afrique de l'Est." },
+  { name: "Christelle Amina Kanani", role: "Secrétaire Générale", photo: "/team/secretaire.jpg", desc: "Gère l'administration et le registre des membres." },
+  { name: "Hayat AbdAllah", role: "Trésorière", photo: "/team/tresorier.jpg", desc: "Supervise la gestion financière et la comptabilité." },
 ];
 
 const staff = [
-  { name: "Jean-Lucien Fouf-Kagna Grebaye", role: "Directeur Exécutif", dept: "Direction", photo: "/team/directeur.jpg" },
-  { name: "Yunus Ibrahim", role: "Resp. Réponse aux Urgences", dept: "Urgences", photo: "/team/resp-urgences.jpg" },
-  { name: "Nada Idris", role: "Resp. Formation & Programmes", dept: "Formation", photo: "/team/resp-formation.jpg" },
-  { name: "Soumaila Seyni Harouna", role: "Resp. IA, Cybersécurité & Innovation", dept: "Technologie", photo: "/team/resp-cyber.jpg" },
-  { name: "Ibrahim Kah", role: "Resp. Bourses & Partenariats Académiques", dept: "Éducation", photo: "/team/resp-bourses.jpg" },
-  { name: "Adam Ali Ousmane", role: "Resp. Communication & Plaidoyer", dept: "Communication", photo: "/team/resp-communication.jpg" },
-  { name: "Andre Theophase Ndayisaba", role: "Resp. Administration & Finances", dept: "Admin & Finance", photo: "/team/resp-finances.jpg" },
-  { name: "Gaoussou Binate", role: "Resp. Partenariats & Développement", dept: "Partenariats", photo: "/team/resp-partenariats.jpg" },
-  { name: "À définir", role: "Chargé(e) Suivi-Évaluation", dept: "M&E", photo: "/team/charge-me.jpg" },
-  { name: "À définir", role: "Formateur(trice) Principal(e)", dept: "Formation", photo: "/team/formateur.jpg" },
-  { name: "À définir", role: "Développeur(se) Web / Plateforme", dept: "Technologie", photo: "/team/developpeur.jpg" },
-  { name: "À définir", role: "Assistant(e) Administratif(ve)", dept: "Support", photo: "/team/assistant.jpg" },
-  { name: "À définir", role: "Représentant(e) Genre", dept: "Transversal", photo: "/team/rep-genre.jpg" },
-  { name: "À définir", role: "Représentant(e) Jeunesse 1", dept: "Jeunesse", photo: "/team/rep-jeunesse1.jpg" },
-  { name: "À définir", role: "Représentant(e) Jeunesse 2", dept: "Jeunesse", photo: "/team/rep-jeunesse2.jpg" },
+  { name: "Kabuye Marvin", role: "Directeur Exécutif", dept: "Direction", photo: "/team/directeur.jpg" },
+  { name: "Juma Haroon", role: "Resp. Réponse aux Urgences", dept: "Urgences", photo: "/team/resp-urgences.jpg" },
+  { name: "Yunus Ibrahim", role: "Resp. Formation & Programmes", dept: "Formation", photo: "/team/resp-formation.jpg" },
+  { name: "Mwansa Lialabi", role: "Resp. IA, Cybersécurité & Innovation", dept: "Technologie", photo: "/team/resp-cyber.jpg" },
+  { name: "Oussama Ali", role: "Resp. Bourses & Partenariats Académiques", dept: "Éducation", photo: "/team/resp-bourses.jpg" },
+  { name: "Aisha", role: "Resp. Communication & Plaidoyer", dept: "Communication", photo: "/team/resp-communication.jpg" },
+  { name: "Soumaila Seyni Harouna", role: "Resp. Administration & Finances", dept: "Admin & Finance", photo: "/team/resp-finances.jpg" },
+  { name: "Norman", role: "Resp. Partenariats & Développement", dept: "Partenariats", photo: "/team/resp-partenariats.jpg" },
+  { name: "Nada Idris", role: "Chargée Suivi-Évaluation", dept: "M&E", photo: "/team/charge-me.jpg" },
+  { name: "Daud Samuel Samuel", role: "Formateur Principal", dept: "Formation", photo: "/team/formateur.jpg" },
+  { name: "Ibrahim Kah", role: "Développeur Web / Plateforme", dept: "Technologie", photo: "/team/developpeur.jpg" },
+  { name: "Nibishaka Fakiru", role: "Assistant Administratif", dept: "Support", photo: "/team/assistant.jpg" },
+  { name: "Gaoussou Binate", role: "Représentant Genre", dept: "Transversal", photo: "/team/rep-genre.jpg" },
+  { name: "Adam Ali Ousmane", role: "Représentant Jeunesse 1", dept: "Jeunesse", photo: "/team/rep-jeunesse1.jpg" },
+  { name: "Andre Theophase Ndayisaba", role: "Représentant Jeunesse 2", dept: "Jeunesse", photo: "/team/rep-jeunesse2.jpg" },
 ];
 
 const representatives = [

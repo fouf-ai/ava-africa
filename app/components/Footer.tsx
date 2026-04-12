@@ -36,8 +36,8 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="text-white font-semibold mb-3">{t("Siège", "Headquarters")}</h4>
-          <p className="text-sm">Km 5, Bangui<br />{t("République Centrafricaine", "Central African Republic")}</p>
-          <p className="text-sm mt-2">contact@ava-africa.org</p>
+          <p className="text-sm">Bangui <br />{t("République Centrafricaine", "Central African Republic")}</p>
+          <p className="text-sm mt-2">contact@ava-africa.me</p>
         </div>
       </div>
       <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-gray-800 text-center text-xs">
