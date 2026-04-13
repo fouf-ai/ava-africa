@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="text-white font-semibold mb-3">{t("Siège", "Headquarters", "المقر")}</h4>
-          <p className="text-sm">Km 5, Bangui<br />{t("République Centrafricaine", "Central African Republic", "جمهورية أفريقيا الوسطى")}</p>
+          <p className="text-sm">Bangui<br />{t("République Centrafricaine", "Central African Republic", "جمهورية أفريقيا الوسطى")}</p>
           <p className="text-sm mt-2">contact@ava-africa.me</p>
           <div className="flex gap-3 mt-4">
             <a href="https://linkedin.com/company/african-visionaries-alliance" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
