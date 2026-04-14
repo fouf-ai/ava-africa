@@ -94,7 +94,6 @@ export default function Home() {
       <section id="ai-tools" className="py-20 px-6 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-sm font-bold text-yellow-400 tracking-widest uppercase">Powered by AI</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">{t("Outils IA pour Entrepreneurs Africains", "AI Tools for African Entrepreneurs")}</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">{t("Outils IA gratuits pour construire, développer et protéger votre activité.", "Free AI-powered tools to help you build, grow and protect your business.")}</p>
           </div>
