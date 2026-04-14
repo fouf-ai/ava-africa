@@ -89,7 +89,6 @@ export default function Home() {
             <Link href="#ai-tools" className="border-2 border-white/40 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition">🤖 {t("Nos outils IA", "Our AI Tools")}</Link>
           </div>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/wriLF7fReMQ?si=IRl3hz1Giir4f9tt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </section>
 
       <section id="ai-tools" className="py-20 px-6 bg-gray-900 text-white">
