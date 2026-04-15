@@ -13,25 +13,28 @@ const navItems = [
     children: [
       { href: "/about", fr: "Qui sommes-nous", en: "Who we are", ar: "من نحن" },
       { href: "/team", fr: "Notre équipe", en: "Our team", ar: "فريقنا" },
-    ],
-  },
-  {
-    fr: "Nos Piliers",
-    en: "Our Pillars",
-    ar: "ركائزنا",
-    children: [
       { href: "/emergencies", fr: "🚨 Urgences Sociales", en: "🚨 Social Emergencies", ar: "🚨 الطوارئ الاجتماعية" },
       { href: "/digital", fr: "🛡️ Numérique & IA", en: "🛡️ Digital & AI", ar: "🛡️ الرقمنة والذكاء الاصطناعي" },
       { href: "/scholarships", fr: "🎓 Bourses & Éducation", en: "🎓 Scholarships", ar: "🎓 المنح والتعليم" },
       { href: "/youth", fr: "🚀 Innovation Jeunesse", en: "🚀 Youth Innovation", ar: "🚀 ابتكار الشباب" },
+      { href: "/recruit", fr: "💼 Carrières", en: "💼 Careers", ar: "💼 الوظائف" },
+    ],
+  },
+  {
+    fr: "Savoir & Opportunités",
+    en: "Learning & Opportunities",
+    ar: "التعلم والفرص",
+    children: [
+      { href: "/education", fr: "🌐 Universités gratuites", en: "🌐 Free Universities", ar: "🌐 جامعات مجانية" },
+      { href: "/scholarships", fr: "🎓 Bourses d'études", en: "🎓 Scholarships", ar: "🎓 المنح الدراسية" },
+      { href: "/#ai-tools", fr: "🤖 Outils IA gratuits", en: "🤖 Free AI Tools", ar: "🤖 أدوات ذكاء اصطناعي مجانية" },
     ],
   },
   { href: "/news", fr: "Actualités", en: "News", ar: "الأخبار" },
-  { href: "/recruit", fr: "Recrutement", en: "Recruitment", ar: "التوظيف" },
 ];
 
-type NavItem = (typeof navItems)[number];
 type NavChild = { href: string; fr: string; en: string; ar: string };
+type NavItem = { href?: string; fr: string; en: string; ar: string; children?: NavChild[] };
 
 function getLabel(item: { fr: string; en: string; ar: string }, lang: string) {
   if (lang === "ar") return item.ar;
@@ -51,9 +54,9 @@ function Dropdown({ item, lang, current }: { item: NavItem; lang: string; curren
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  if (!("children" in item) || !item.children) return null;
+  if (!item.children) return null;
 
-  const isActive = item.children.some((c: NavChild) => c.href === current);
+  const isActive = item.children.some((c) => c.href === current);
 
   return (
     <div ref={ref} className="relative">
@@ -67,8 +70,8 @@ function Dropdown({ item, lang, current }: { item: NavItem; lang: string; curren
         </svg>
       </button>
       {open && (
-        <div className={`absolute top-full mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[220px] z-50 ${lang === "ar" ? "right-0" : "left-0"}`}>
-          {item.children.map((child: NavChild) => (
+        <div className={`absolute top-full mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[240px] z-50 ${lang === "ar" ? "right-0" : "left-0"}`}>
+          {item.children.map((child) => (
             <Link
               key={child.href}
               href={child.href}
@@ -108,7 +111,7 @@ export default function Header({ current }: { current?: string }) {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex gap-6 items-center">
           {navItems.map((item) => {
-            if ("href" in item) {
+            if ("href" in item && item.href) {
               return (
                 <Link
                   key={item.href}
@@ -124,7 +127,6 @@ export default function Header({ current }: { current?: string }) {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          {/* Language Selector */}
           <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
             {languages.map((l) => (
               <button
@@ -136,7 +138,6 @@ export default function Header({ current }: { current?: string }) {
               </button>
             ))}
           </div>
-
           <Link href="/youth#join" className="bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-green-800 transition">
             {t("Rejoindre", "Join Us", "انضم إلينا")}
           </Link>
@@ -158,7 +159,7 @@ export default function Header({ current }: { current?: string }) {
       {open && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
           {navItems.map((item) => {
-            if ("href" in item) {
+            if ("href" in item && item.href) {
               return (
                 <Link
                   key={item.href}
@@ -187,7 +188,7 @@ export default function Header({ current }: { current?: string }) {
                 </button>
                 {isExpanded && item.children && (
                   <div className={`${lang === "ar" ? "pr-4" : "pl-4"} pb-2 space-y-1`}>
-                    {item.children.map((child: NavChild) => (
+                    {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
@@ -203,7 +204,6 @@ export default function Header({ current }: { current?: string }) {
             );
           })}
 
-          {/* Mobile Language Selector */}
           <div className="flex gap-2 pt-3">
             {languages.map((l) => (
               <button
