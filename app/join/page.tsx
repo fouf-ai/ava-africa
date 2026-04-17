@@ -186,4 +186,4 @@ export default function Join() {
       <Footer />
     </main>
   );
-}
+}git commit -m "restructuration UX learn join header"
