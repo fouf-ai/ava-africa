@@ -1,4 +1,7 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const footer = `"use client";
 import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
 
@@ -58,4 +61,8 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+}`;
+
+fs.writeFileSync(path.join(__dirname, 'app', 'components', 'Footer.tsx'), footer);
+console.log('✅ Footer.tsx updated with SVG icons + YouTube');
+console.log('🎉 Done! Run: npm run build');
