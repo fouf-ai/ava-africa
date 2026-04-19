@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "./components/LanguageContext";
-import dynamic from "next/dynamic";
-const ChatBotWrapper = dynamic(() => import("./components/ChatBot"), { ssr: false });
+import ChatBotLoader from "./components/ChatBotLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +45,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LanguageProvider>
           {children}
-          <ChatBotWrapper />
+          <ChatBotLoader />
         </LanguageProvider>
 
         <a
